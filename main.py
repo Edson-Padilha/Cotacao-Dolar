@@ -17,12 +17,12 @@ def main(page: ft.Page):
             return None
 
     
-    texto_cotacao = ft.Text(f"Cotação do Dólar: ", size=20)
-    texto_maxima = ft.Text(f"Máxima do dia: ", size=20) 
-    texto_minima = ft.Text(f"Mínima do dia: ", size=20)
-    texto_venda = ft.Text(f"Valor de venda: ", size=20)
+    texto_cotacao = ft.Text("Cotação do Dólar: ", size=20, color=ft.colors.BLACK)
+    texto_maxima = ft.Text(f"Máxima do dia: ", size=20, color=ft.colors.BLACK) 
+    texto_minima = ft.Text(f"Mínima do dia: ", size=20, color=ft.colors.BLACK)
+    texto_venda = ft.Text(f"Valor de venda: ", size=20, color=ft.colors.BLACK)
 
-    def update_quotation():
+    def update_quotation(e=None):
         data = get_dolar_quotation()
 
         if data:
@@ -33,18 +33,50 @@ def main(page: ft.Page):
         
         else:
             texto_cotacao.value = f"Erro ao obter cotação"
+        
+        # Atualiza o card com as novas informações
+        card.content = ft.Container(
+            content=ft.Column(
+                [
+                    texto_cotacao,
+                    texto_maxima,
+                    texto_minima,
+                    texto_venda,
+                ],
+                alignment=ft.alignment.center,
+            ),
+            padding=10,
+        )
         page.update()
     
-    def timer_tick(e):
-        update_quotation()
-        # Configura o timer para chamar update_quotation a cada 1 segundo
-        
-        print("Timer")
-
+    botao_atualizar = ft.ElevatedButton("Atualizar", on_click=update_quotation, bgcolor="green", color=ft.colors.WHITE)
+    
+    # Cria o card
+    card = ft.Card(
+        color=ft.colors.WHITE,
+        content=ft.Container(
+            content=ft.Column(
+                [
+                    texto_cotacao,
+                    texto_maxima,
+                    texto_minima,
+                    texto_venda,
+                ],
+                alignment=ft.alignment.center,
+            ),
+            padding=10,
+        )
+    )
         
     update_quotation()
-    page.on_show = lambda e: page.add(ft.Timer(60, on_tick=timer_tick))
 
-    page.add(texto_cotacao, texto_maxima, texto_minima, texto_venda)
+    page.add(
+        ft.Column(
+            [card,
+            ft.Row([botao_atualizar], alignment=ft.MainAxisAlignment.CENTER),
+            ],
+            horizontal_alignment=ft.CrossAxisAlignment.CENTER,
+        )
+    )
 
 ft.app(target=main)
