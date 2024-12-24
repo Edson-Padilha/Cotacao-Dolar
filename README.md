@@ -23,7 +23,7 @@ exibir a cotação do dólar em tempo real, com atualização manual via botão.
 * flet run main.py
 
 ## Observações:
-* A API AwesomeAPI é utilizadapara obter os dados da cotação do dólar.
+* A API AwesomeAPI é utilizada para obter os dados da cotação do dólar.
 * O aplicativo foi projetado para ser simples e fácil de entender, ideal para iniciantes em Flet. 
 
 ## Melhorias futuras:
@@ -36,4 +36,4 @@ Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar
 Edson Padilha
 
 ## Licença:
-<u>MIT</u>
+<span style="text-decoration: underline;">MIT</span>
