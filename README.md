@@ -1,6 +1,6 @@
 # Cotação do Dólar em Tempo Real com Flet
 Consumindo API do Banco Central do Brasil para cotação do dólar.
-Este projeto demonstra como criar um aolicativo simples em Python usando a biblioteca Flet para 
+Este projeto demonstra como criar um aplicativo simples em Python usando a biblioteca Flet para 
 exibir a cotação do dólar em tempo real, com atualização manual via botão.  
 
 ## Funcionalidades:
@@ -17,13 +17,23 @@ exibir a cotação do dólar em tempo real, com atualização manual via botão.
 
 ## Como executar:
 1. Instale as dependências:
+* pip install -r requirements.txt
 
 ## Execute o aplicativo:
+* flet run main.py
+
 ## Observações:
+* A API AwesomeAPI é utilizadapara obter os dados da cotação do dólar.
+* O aplicativo foi projetado para ser simples e fácil de entender, ideal para iniciantes em Flet. 
+
 ## Melhorias futuras:
+* Permitir a personalização da interface (cores, tema).
+
 ## Contribuições:
 Contribuições são bem-vindas! Sinta-se à vontade para abrir issues ou enviar pull requests.
+
 ## Autor:
 Edson Padilha
+
 ## Licença:
-MIT
+<u>MIT</u>
